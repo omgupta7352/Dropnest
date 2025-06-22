@@ -73,11 +73,12 @@ bash
 
    
 properties
-   # MySQL
+   ### MySQL
+   ```
    # spring.datasource.url=jdbc:mysql://localhost:3306/dropnest
    # spring.datasource.username=root
    # spring.datasource.password=...
-
+```
 3. Build and run:
 
    
