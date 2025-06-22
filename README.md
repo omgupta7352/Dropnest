@@ -181,7 +181,8 @@ bash
 ![Home Page](dropnest1.png)
 *Home page with upload & file list*
 
-![Preview](screenshots/preview.png)
+![Preview](dropnest2.png)
+![Preview](dropnest3.png)
 *Preview inline for text and images*
 
 ---
