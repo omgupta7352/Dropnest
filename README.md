@@ -83,9 +83,10 @@ properties
 
    
 bash
+```
    mvn clean install
    mvn spring-boot:run
-
+```
 4. Backend runs at http://localhost:8080
 
 ### Frontend Setup
@@ -94,14 +95,17 @@ bash
 
    
 bash
+```
    cd Dropnest/frontend
+```
 
 2. Install dependencies:
 
    
 bash
+```
    npm install
-
+```
 3. Start development server:
 
    
@@ -118,11 +122,11 @@ bash
 
 | Method | Endpoint                   | Description           |
 | ------ | -------------------------- | --------------------- |
-| POST   | /api/files/upload        | Upload a file         |
-| GET    | /api/files               | List all files        |
-| GET    | /api/files/download/{id} | Download file by ID   |
-| GET    | /api/files/preview/{id}  | Preview file (inline) |
-| DELETE | /api/files/{id}          | Delete file by ID     |
+| POST   | /api/files/upload          | Upload a file         |
+| GET    | /api/files                 | List all files        |
+| GET    | /api/files/{filename}      | Download file by Name  |
+| GET    | /api/preview/{filename}    | Preview file (inline) |
+| DELETE | /api/files/{id}            | Delete file by ID     |
 
 
 
