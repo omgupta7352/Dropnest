@@ -1,12 +1,12 @@
-# 📁 DropNest
+# DropNest 📁 
 
 Secure, lightweight Dropbox-like application for uploading, previewing, downloading, and managing files.
 
 ---
 
-## 🚀 Table of Contents
+## Table of Contents 🚀
 
-1. [Features](#features)  
+1. [Features](#features)
 2. [Tech Stack](#tech-stack)  
 3. [Architecture](#architecture)
 4. [UML Diagram](#uml-diagram)    
@@ -18,11 +18,10 @@ Secure, lightweight Dropbox-like application for uploading, previewing, download
 7. [Usage](#usage)  
 8. [Screenshots](#screenshots)  
 9. [Contributing](#contributing)  
-10. [License](#license)  
 
 ---
 
-## 🌟 Features
+## Features
 
 - **File Upload:** Drag-and-drop or browse local files  
 - **File Listing:** View all uploaded files in a clean interface  
@@ -34,7 +33,7 @@ Secure, lightweight Dropbox-like application for uploading, previewing, download
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Backend:** Java, Spring Boot, Spring Data JPA, H2/MySQL, Local File System  
 - **Frontend:** React, React Router, Axios, Tailwind CSS  
@@ -43,7 +42,7 @@ Secure, lightweight Dropbox-like application for uploading, previewing, download
 
 ---
 
-## 🏗 Architecture
+## Architecture
 
 ```
 ┌─────────┐          ┌──────────────┐   HTTP   ┌─────────────┐
@@ -89,7 +88,7 @@ Secure, lightweight Dropbox-like application for uploading, previewing, download
 Frontend ↔ REST API ↔ Backend ↔ Local File System
 ```
 
-## 🏁 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -154,7 +153,7 @@ bash
 
 ---
 
-## 📡 API Endpoints
+## API Endpoints
 
 | Method | Endpoint                   | Description           |
 | ------ | -------------------------- | --------------------- |
@@ -166,7 +165,7 @@ bash
 
 
 
-## 📖 Usage
+## Usage
 
 1. Navigate to http://localhost:3000
 2. Drag & drop or click **Browse Files** to select a file
@@ -176,7 +175,7 @@ bash
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ![Home Page](dropnest1.png)
 *Home page with upload & file list*
@@ -187,7 +186,7 @@ bash
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (git checkout -b feature/YourFeature)
