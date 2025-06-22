@@ -53,6 +53,18 @@ Secure, lightweight Dropbox-like application for uploading, previewing, download
 
 ---
 
+## 📡 API Endpoints
+
+| Method | Endpoint                   | Description           |
+| ------ | -------------------------- | --------------------- |
+| POST   | /api/files/upload        | Upload a file         |
+| GET    | /api/files               | List all files        |
+| GET    | /api/files/download/{id} | Download file by ID   |
+| GET    | /api/files/preview/{id}  | Preview file (inline) |
+| DELETE | /api/files/{id}          | Delete file by ID     |
+
+
+
 ## 📖 Usage
 
 1. Navigate to http://localhost:3000
