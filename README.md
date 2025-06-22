@@ -8,16 +8,17 @@ Secure, lightweight Dropbox-like application for uploading, previewing, download
 
 1. [Features](#features)  
 2. [Tech Stack](#tech-stack)  
-3. [Architecture](#architecture)  
-4. [Getting Started](#getting-started)  
+3. [Architecture](#architecture)
+4. [UML Diagram](#uml-diagram)    
+5. [Getting Started](#getting-started)  
    - [Prerequisites](#prerequisites)  
    - [Backend Setup](#backend-setup)  
    - [Frontend Setup](#frontend-setup)  
-5. [API Endpoints](#api-endpoints)  
-6. [Usage](#usage)  
-7. [Screenshots](#screenshots)  
-8. [Contributing](#contributing)  
-9. [License](#license)  
+6. [API Endpoints](#api-endpoints)  
+7. [Usage](#usage)  
+8. [Screenshots](#screenshots)  
+9. [Contributing](#contributing)  
+10. [License](#license)  
 
 ---
 
@@ -49,6 +50,43 @@ Secure, lightweight Dropbox-like application for uploading, previewing, download
 │Browser  │◀────────▶│React Frontend│◀────────▶│Spring Boot│
 │ (UI)    │   REST   │ (Tailwind)   │   API    │  Backend    │
 └─────────┘          └──────────────┘          └─────────────┘
+```
+
+## UML Diagram
+
+```
++-------------------+         +------------------------+
+|   FileController  |         |    FileService         |
+|-------------------|         |------------------------|
+| - fileService     |<>------>| - fileRepository       |
+|                   |         | - storagePath          |
+| + uploadFile()    |         | + uploadFile()         |
+| + getAllFiles()   |         | + getAllFiles()        |
+| + downloadFile()  |         | + downloadFile()       |
+| + deleteFile()    |         | + deleteFile()         |
++-------------------+         +------------------------+
+        |
+        | Uses
+        v
++---------------------+
+|     FileEntity      |
+|---------------------|
+| - id                |
+| - filename          |
+| - originalFilename  |
+| - contentType       |
+| - size              |
+| - uploadTime        |
++---------------------+
+
++-------------------------+
+|     FileRepository      |
+|-------------------------|
+| extends JpaRepository   |
+| + findByFilename()      |
++-------------------------+
+
+Frontend ↔ REST API ↔ Backend ↔ Local File System
 ```
 
 ## 🏁 Getting Started
