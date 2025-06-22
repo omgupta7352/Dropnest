@@ -116,8 +116,6 @@ bash
 
 ---
 
----
-
 ## 📡 API Endpoints
 
 | Method | Endpoint                   | Description           |
