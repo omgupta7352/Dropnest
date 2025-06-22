@@ -51,6 +51,66 @@ Secure, lightweight Dropbox-like application for uploading, previewing, download
 └─────────┘          └──────────────┘          └─────────────┘
 ```
 
+## 🏁 Getting Started
+
+### Prerequisites
+
+* Java 17+
+* Maven 3.6+
+* Node.js & npm
+* Git
+
+### Backend Setup
+
+1. Clone the repo:
+
+   
+bash
+   git clone https://github.com/omgupta7352/Dropnest.git
+   cd Dropnest/backend
+
+2. Configure database in src/main/resources/application.properties:
+
+   
+properties
+   # MySQL
+   # spring.datasource.url=jdbc:mysql://localhost:3306/dropnest
+   # spring.datasource.username=root
+   # spring.datasource.password=...
+
+3. Build and run:
+
+   
+bash
+   mvn clean install
+   mvn spring-boot:run
+
+4. Backend runs at http://localhost:8080
+
+### Frontend Setup
+
+1. Open a new terminal, navigate to frontend:
+
+   
+bash
+   cd Dropnest/frontend
+
+2. Install dependencies:
+
+   
+bash
+   npm install
+
+3. Start development server:
+
+   
+bash
+   npm start
+
+4. Frontend runs at http://localhost:3000
+
+---
+
 ---
 
 ## 📡 API Endpoints
