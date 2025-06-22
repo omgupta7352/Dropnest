@@ -1,0 +1,269 @@
+https://www.linkedin.com/posts/subhash-tiwari-33a50324_microsoft-referral-opportunities-hello-activity-7338951864031334402-FkUQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADbR1EcB1x_2aUgFO7me_211aaRweMsNZSY
+
+
+vishal@atlassian.com
+
+Aezakmi@7352
+
+Ashuomgupta@7352
+
+career@cimba.ai
+rekha.rawat@samsung.com
+shreya@superpe.in
+lakshay@pice.one
+neha.moreshwar.bhana@hcltech.com
+slovenia-talent@devrev.ai
+hello@divyam.ai
+Aaryan.goyal@kivicapital.in
+jobs@astuto.ai
+pandipoo@amazon.com
+
+
+import java.util.*;
+
+// Enums
+enum Status { TODO, IN_PROGRESS, DONE }
+enum Priority { LOW, MEDIUM, HIGH }
+enum IssueType { BUG, TASK, EPIC, STORY }
+
+// Core Classes
+class User {
+    private String id;
+    private String name;
+    private String email;
+
+    public User(String id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+
+    // Getters and setters
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public String getEmail() { return email; }
+}
+
+class Project {
+    private String id;
+    private String name;
+    private String key;
+    private String description;
+    private User lead;
+    private List<User> members = new ArrayList<>();
+
+    public Project(String id, String name, String key, String description, User lead) {
+        this.id = id;
+        this.name = name;
+        this.key = key;
+        this.description = description;
+        this.lead = lead;
+        this.members.add(lead);
+    }
+
+    public void addMember(User user) {
+        members.add(user);
+    }
+
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public User getLead() { return lead; }
+    public List<User> getMembers() { return members; }
+}
+
+class Comment {
+    private String id;
+    private String message;
+    private User author;
+    private Date timestamp;
+
+    public Comment(String id, String message, User author) {
+        this.id = id;
+        this.message = message;
+        this.author = author;
+        this.timestamp = new Date();
+    }
+
+    public String getMessage() { return message; }
+    public User getAuthor() { return author; }
+    public Date getTimestamp() { return timestamp; }
+}
+
+class Attachment {
+    private String fileName;
+    private User uploadedBy;
+
+    public Attachment(String fileName, User uploadedBy) {
+        this.fileName = fileName;
+        this.uploadedBy = uploadedBy;
+    }
+
+    public String getFileName() { return fileName; }
+    public User getUploadedBy() { return uploadedBy; }
+}
+
+class Issue {
+    private String id;
+    private String title;
+    private String description;
+    private IssueType type;
+    private Status status;
+    private Priority priority;
+    private User reporter;
+    private User assignee;
+    private Project project;
+    private List<Comment> comments = new ArrayList<>();
+    private List<Attachment> attachments = new ArrayList<>();
+
+    public Issue(String id, String title, String description, IssueType type, Priority priority,
+                 User reporter, Project project) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.type = type;
+        this.priority = priority;
+        this.status = Status.TODO;
+        this.reporter = reporter;
+        this.project = project;
+    }
+
+    public void assignTo(User user) {
+        this.assignee = user;
+    }
+
+    public void addComment(Comment comment) {
+        comments.add(comment);
+    }
+
+    public void addAttachment(Attachment attachment) {
+        attachments.add(attachment);
+    }
+
+    public void changeStatus(Status status) {
+        this.status = status;
+    }
+
+    public String getTitle() { return title; }
+    public Status getStatus() { return status; }
+}
+
+class WorkflowStep {
+    private String name;
+    private List<WorkflowStep> transitions = new ArrayList<>();
+
+    public WorkflowStep(String name) {
+        this.name = name;
+    }
+
+    public void addTransition(WorkflowStep step) {
+        transitions.add(step);
+    }
+
+    public String getName() { return name; }
+    public List<WorkflowStep> getTransitions() { return transitions; }
+}
+
+class Workflow {
+    private List<WorkflowStep> steps = new ArrayList<>();
+
+    public void addStep(WorkflowStep step) {
+        steps.add(step);
+    }
+
+    public List<WorkflowStep> getSteps() { return steps; }
+}
+
+class JiraSystem {
+    private List<User> users = new ArrayList<>();
+    private List<Project> projects = new ArrayList<>();
+    private List<Issue> issues = new ArrayList<>();
+
+    public User createUser(String id, String name, String email) {
+        User user = new User(id, name, email);
+        users.add(user);
+        return user;
+    }
+
+    public Project createProject(String id, String name, String key, String description, User lead) {
+        Project project = new Project(id, name, key, description, lead);
+        projects.add(project);
+        return project;
+    }
+
+    public Issue createIssue(String id, String title, String description, IssueType type,
+                             Priority priority, User reporter, Project project) {
+        Issue issue = new Issue(id, title, description, type, priority, reporter, project);
+        issues.add(issue);
+        return issue;
+    }
+}
+
+
+In the provided Java LLD for a simplified JIRA-like system, several object-oriented design patterns are implicitly used. Here's a breakdown of the key design patterns utilized:
+
+✅ 1. Builder Pattern (implicit via constructor overloading)
+Where: User, Project, Issue, Comment, Attachment classes
+
+How: Objects are created using constructors that initialize all fields at once, mimicking a simplified form of the Builder Pattern.
+
+Benefit: Simplifies object creation with many parameters.
+
+✅ 2. Factory Pattern
+Where: JiraSystem class
+
+How: Acts as a factory for creating instances of User, Project, and Issue.
+
+Example:
+
+java
+Copy
+Edit
+public User createUser(String id, String name, String email)
+public Project createProject(String id, String name, ...)
+public Issue createIssue(String id, String title, ...)
+Benefit: Centralizes object creation logic, improves modularity and testability.
+
+✅ 3. Strategy Pattern (potential)
+Where: Piece and its subclasses in your earlier chess design (applies conceptually here too)
+
+How it could be used: If workflows or transitions require pluggable logic for different projects, Strategy pattern could apply to Workflow behavior.
+
+Future Use: getValidTransitions() could vary by project or issue type.
+
+✅ 4. Composite Pattern (for WorkflowStep)
+Where: WorkflowStep contains a list of transitions to other WorkflowSteps.
+
+How: Represents part-whole hierarchy for steps that can lead to other steps.
+
+Benefit: Flexible structure to represent complex workflows.
+
+✅ 5. Singleton Pattern (potential enhancement)
+Where it could apply: JiraSystem
+
+How: Ensure a single instance of the system in memory.
+
+Enhancement:
+
+java
+Copy
+Edit
+private static JiraSystem instance;
+public static JiraSystem getInstance() {
+    if (instance == null) instance = new JiraSystem();
+    return instance;
+}
+✅ 6. Observer Pattern (for comment updates or issue changes) – Not implemented yet
+Where: Could be added to notify watchers or users when an issue changes.
+
+Benefit: Enables decoupled communication between objects.
+
+Summary Table
+Design Pattern	Used Where	Purpose
+Factory	JiraSystem	Centralized creation of objects
+Builder (manual)	Constructor usage	Clean and structured object instantiation
+Composite	WorkflowStep	Hierarchical workflow representation
+Strategy (future)	Workflow transitions	Flexible logic for different workflows
+Singleton (opt)	JiraSystem	Ensure one central system instance
+Observer (opt)	Comments, issue updates (future)	Enable notification to users/watchers
+
+Let me know if you want to implement any of these patterns explicitly, or add more scalability like Service, DAO, or MVC layers.
